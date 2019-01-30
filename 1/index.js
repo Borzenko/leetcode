@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
@@ -12,14 +13,15 @@ return [0, 1].
  * 
  */
 
- /**
+/* eslint-enable */
+/**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
+const twoSum = (nums, target) => {
     const sorted = [...nums].sort((a, b) => a - b);
-    for (let i = 0; i < sorted.length; i++) {
+    for (let i = 0; i < sorted.length; i += 1) {
         let run = true;
         let sum;
         let j = i + 1;
@@ -29,11 +31,11 @@ var twoSum = function(nums, target) {
                 run = false;
                 break;
             }
-            j++;
+            j += 1;
         }
         if (sum === target) {
             const firstIndex = nums.indexOf(sorted[i]);
-            let secondIndex = nums.lastIndexOf(sorted[j]);
+            const secondIndex = nums.lastIndexOf(sorted[j]);
             return [firstIndex, secondIndex];
         }
     }
