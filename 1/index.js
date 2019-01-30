@@ -19,7 +19,7 @@ return [0, 1].
  * @param {number} target
  * @return {number[]}
  */
-const twoSum = (nums, target) => {
+module.exports = (nums, target) => {
     const sorted = [...nums].sort((a, b) => a - b);
     for (let i = 0; i < sorted.length; i += 1) {
         let run = true;
@@ -40,10 +40,6 @@ const twoSum = (nums, target) => {
         }
     }
 };
-
-
-console.log(twoSum([3, 2, 3], 6));
-console.log(twoSum([2, 3, 8, 7, 11, 15], 9));
 
 /**
  * TODO: Do it one more time with better solution

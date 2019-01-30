@@ -31,7 +31,7 @@ Each emails[i] contains exactly one '@' character.
 
 /* eslint-enable */
 
-const numUniqueEmails = (emails) => {
+module.exports = (emails) => {
     const uniqueEmails = [];
     emails.forEach((email) => {
         const domain = email.split('@');
@@ -44,5 +44,3 @@ const numUniqueEmails = (emails) => {
     });
     return uniqueEmails.length;
 };
-
-numUniqueEmails(['test.email+alex@leetcode.com', 'test.e.mail+bob.cathy@leetcode.com', 'testemail+david@lee.tcode.com']);
