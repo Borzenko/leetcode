@@ -23,16 +23,21 @@ Coud you solve it without converting the integer to a string?
  */
 /* eslint-enable */
 module.exports = (x) => {
-    let string = x.toString();
     if (x < 0) return false;
-    if (string.length === 1) return true;
-    string = string.length % 2 === 1
-        ? string.slice((string.length + 1) / 2) + string.slice(0, (string.length - 1) / 2)
-        : string;
-    for (let i = 0; i < string.length / 2; i += 1) {
-        if (string[i] !== string[string.length - i - 1]) {
-            return false;
-        }
+    if (x < 10) return true;
+    let length = 1;
+    let cycle = x;
+    let res = 0;
+    let isContinue = true;
+    while (isContinue) {
+        const number = parseInt(x / (Math.pow(10, length)), 10);
+        if (number < 10) isContinue = false;
+        length += 1;
     }
-    return true;
+    for (let i = 1; i <= length; i++) {
+        const number = cycle % (Math.pow(10, 1));
+        cycle = parseInt(cycle / 10, 10);
+        res = res + number * Math.pow(10, length - i);
+    }
+    return res === x;
 };
